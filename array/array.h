@@ -64,7 +64,7 @@ namespace xie
         void prepend(const T& value);
         void delete_at(const long long& index);
         array<size_t> remove(const T& value);
-        long long find(const T& value);
+        long long find(const T& value)const;
     };
 
 } // namespace xie

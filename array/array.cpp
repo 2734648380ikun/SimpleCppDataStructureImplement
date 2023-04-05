@@ -78,7 +78,7 @@ namespace xie
         return t1;
     }
     template<class T>
-    inline long long  array<T>::find(const T& value){
+    inline long long  array<T>::find(const T& value)const{
         for(size_t i=0;i<size_arr;++i){
             if(arr[i]==value){
                 return i;
