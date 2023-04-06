@@ -1,10 +1,9 @@
 #ifndef _Array_XIE
 #define Arrat_XIE
 #include<memory>
-#include<iostream>
 namespace xie
 {
-    const size_t _MIN_CAPACITIES=16;
+    constexpr size_t _MIN_CAPACITIES=16;
     template<class T>
     class array
     {
