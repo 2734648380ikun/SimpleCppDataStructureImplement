@@ -134,12 +134,14 @@ namespace xie
     template<class T>
     inline bool list<T>::remove_value(const T& value){
         link<T>* t=head;
+        size_t i=0;
         while(t!=nullptr){
             if(t->data==value){
                 erase(i);
                 return true;
             }
             t=t->next;
+            ++i;
         }
         return false;
     }
