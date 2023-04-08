@@ -1,9 +1,10 @@
 #ifndef _Array_XIE
-#define Arrat_XIE
+#define _Array_XIE
 #include<memory>
 namespace xie
 {
     constexpr size_t _MIN_CAPACITIES=16;
+    constexpr size_t _MAX_CAPACITIES=1000000;
     template<class T>
     class array
     {
@@ -12,37 +13,37 @@ namespace xie
         arr_ptr arr;
         size_t size_arr;
         size_t capacities_arr;
-        void resize(size_t capacities_new){
-            increse(capacities_new);
-            decrese(capacities_new);
+        void Resize(size_t size_new){
+            increse(size_new);
+            decrese(size_new);
+            size_arr=size_new;
         }
-        void increse(size_t size_old){
-            if(size_old==capacities_arr){
+        void increse(size_t size_new){
+            if(size_new>=capacities_arr&&size_new<_MAX_CAPACITIES){
                 arr_ptr t=std::move(arr);
                 arr=arr_ptr(new T[2*capacities_arr]());
                 capacities_arr*=2;
-                for(size_t i=0;i<size_old;++i){
+                for(size_t i=0;i<size_arr;++i){
                     arr[i]=t[i];
                 }
             }
         }
-        void decrese(size_t size_old){
-            if(size_old<=capacities_arr/4.f){
+        void decrese(size_t size_new){
+            if(size_new<=capacities_arr/4.f){
                 arr_ptr t=std::move(arr);
                 capacities_arr/=2;
                 arr=arr_ptr(new T[capacities_arr/2]());
-                for(size_t i=0;i<size_old;++i){
+                for(size_t i=0;i<size_arr;++i){
                     arr[i]=t[i];
                 }
             }
         }
     public:
-        
         array():arr(nullptr),size_arr(0),capacities_arr(_MIN_CAPACITIES){
             arr=arr_ptr(new T[capacities_arr]());
-        };
+        }
         array(const array& other);
-        array(const size_t& num);
+        array(const T& value,const size_t& num=_MIN_CAPACITIES);
         array& operator=(const array& other);
         array(array&& other):arr(std::move(other.arr)),size_arr(other.size_arr),
                                         capacities_arr(other.capacities_arr){}
@@ -51,6 +52,7 @@ namespace xie
             capacities_arr=std::move(other.capacities_arr);
             size_arr=std::move(other.size_arr);
             arr=std::move(other.arr);
+            return *this;
             }
         T& operator[](long long index)const{return at(index);};
         ~array()=default;
@@ -64,6 +66,7 @@ namespace xie
         void delete_at(const long long& index);
         array<size_t> remove(const T& value);
         long long find(const T& value)const;
+        void resize(const size_t& size){Resize(size);}
     };
 
 } // namespace xie

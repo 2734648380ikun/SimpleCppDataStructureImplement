@@ -1,3 +1,4 @@
+#include"array.h"
 #include"array.cpp"
 #include<iostream>
 using std::cout;

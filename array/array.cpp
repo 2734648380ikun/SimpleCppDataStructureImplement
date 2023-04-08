@@ -11,10 +11,11 @@ namespace xie
         }
     }
     template<class T>
-    array<T>::array(const size_t& num){
+    array<T>::array(const T& value,const size_t& num){
         capacities_arr=num;
-        size_arr=0;
-        arr=arr_ptr(new T[capacities_arr]);
+        size_arr=num;
+        arr=arr_ptr(new T[capacities_arr]{value});
+        
     }
     template<class T>
     array<T>& array<T>::operator=(const array& other){
