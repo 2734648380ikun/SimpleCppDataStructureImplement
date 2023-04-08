@@ -1,5 +1,4 @@
 #include"list.h"
-#include<iostream>
 namespace xie
 {
     template<class T>
