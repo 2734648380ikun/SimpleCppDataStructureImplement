@@ -1,5 +1,4 @@
 #include"hashtable.h"
-#include<iostream>
 namespace xie
 {
     template<class T_key,class T_value>
