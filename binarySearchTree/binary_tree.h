@@ -23,13 +23,13 @@ namespace xie
         size_t Get_node_count(TreeNode* node)const;
         TreeNode*& Get_min_node(TreeNode* node)const{
             if(node==nullptr) throw "二叉搜索树没有结点";
-            if(node->left==nullptr) return node->data;
-            else return Get_min(node->left);
+            if(node->left==nullptr) return node;
+            else return Get_min_node(node->left);
         }
         TreeNode*& Get_max_node(TreeNode* node)const{
             if(node==nullptr) throw "二叉搜索树没有结点";
-            if(node->right==nullptr) return node->data;
-            else return Get_max(node->right);
+            if(node->right==nullptr) return node;
+            else return Get_max_node(node->right);
         }
         TreeNode*& Find_node(const T& value,TreeNode*&node){
             if(node==nullptr) return node;
