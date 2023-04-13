@@ -5,7 +5,6 @@
 #include"../link/list.cpp"
 namespace xie
 {
-    
     template<class T>
     class queue
     {
