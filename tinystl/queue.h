@@ -2,9 +2,9 @@
 #define _QUEUE_XIE
 #include "list.h"
 #include <memory>
-namespace xie {
+namespace leexxq {
 template <class T> class queue {
-  using link_ptr = xie::link<T> *;
+  using link_ptr = leexxq::link<T> *;
 
 private:
   link_ptr head;

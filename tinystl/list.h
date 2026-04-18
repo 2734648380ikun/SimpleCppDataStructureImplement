@@ -1,7 +1,7 @@
 #ifndef _LIST_XIE
 #define _LIST_XIE
 #include <memory>
-namespace xie {
+namespace leexxq {
 template <class T> struct link {
   T data;
   link<T> *next;

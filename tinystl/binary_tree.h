@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <math.h>
 #include <memory>
-namespace xie {
+namespace leexxq {
 template <class T> class binary_tree {
 private:
   struct TreeNode {
@@ -19,7 +19,7 @@ private:
   void Insert(const T &value, TreeNode *&node);
   void Print_values(TreeNode *node) const;
   size_t Get_node_count(TreeNode *node) const;
-  TreeNode *&Get_min_node(TreeNode *node) const {
+  TreeNode *&Get_min_node(TreeNode *  &node) const {
     if (node == nullptr)
       throw "二叉搜索树没有结点";
     if (node->left == nullptr)
@@ -27,7 +27,7 @@ private:
     else
       return Get_min_node(node->left);
   }
-  TreeNode *&Get_max_node(TreeNode *node) const {
+  TreeNode *& Get_max_node(TreeNode*  &node) const {
     if (node == nullptr)
       throw "二叉搜索树没有结点";
     if (node->right == nullptr)
@@ -63,8 +63,8 @@ public:
   int get_height(const T &value) {
     return Get_height(Find_node(value, root));
   } // 返回节点所在的高度（如果只有一个节点，那么高度则为0，没有该节点为-1）
-  T get_min() const { return Get_min_node(root)->data; } // 返回树上的最小值
-  T get_max() const { return Get_max_node(root)->data; } // 返回树上的最大值
+  T get_min() { return Get_min_node(root)->data; } // 返回树上的最小值
+  T get_max() { return Get_max_node(root)->data; } // 返回树上的最大值
   // bool is_binary_search_tree(const TreeNode*&  t)const;//判断是否是二插搜索树
   void delete_value(const T &value) {
     Delete_node(Find_node(value, root));
@@ -124,6 +124,6 @@ template <class T> int binary_tree<T>::Get_height(TreeNode *node) {
   else
     return std::max(Get_height(node->left), Get_height(node->right)) + 1;
 }
-} // namespace xie
+} // namespace leexxq
 
 #endif

@@ -2,7 +2,7 @@
 #define _HASHTABLE_XIE
 #include "array.h"
 #include <memory>
-namespace xie {
+namespace leexxq{
 constexpr size_t _MIN_HASHTABLE = 7;
 template <class T_key, class T_value> class hashtable {
 private:

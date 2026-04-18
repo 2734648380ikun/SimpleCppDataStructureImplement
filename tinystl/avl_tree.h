@@ -2,7 +2,7 @@
 #define _AVL_TREE_XIE
 #include <iostream>
 #include <math.h>
-namespace xie {
+namespace leexxq {
 static constexpr int _MAX_HEIGHT_DIFFERENCE = 2;
 template <class T> class avl_tree {
 private:

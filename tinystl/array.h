@@ -1,7 +1,7 @@
 #ifndef _Array_XIE
 #define _Array_XIE
 #include <memory>
-namespace xie {
+namespace leexxq {
 constexpr size_t _MIN_CAPACITIES = 16;
 constexpr size_t _MAX_CAPACITIES = 1000000;
 template <class T> class array {
